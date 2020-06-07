@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: ""
+baseurl: "blog"
 url: "https://priyanshu.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
@@ -21,12 +21,12 @@ color_image: /assets/img/lineart.png                    # A bit transparent for 
 
 # Features
 katex: false                                             # Enable if using math markup
-google_analytics: http-s3b7jj6pj9                                        # Tracking ID, e.g. "UA-000000-01"
-disqus_shortname: UA-151881450-1                                    # Your discus shortname for comments
-layout_variables:                                       # Open the "_sass > base" folder, and open "_variables.scss"
+google_analytics: UA-151881450-1                                      # Tracking ID, e.g. "UA-000000-01"
+disqus_shortname: http-s3b7jj6pj9                                 # Your discus shortname for comments
+layout_variables:                                        # Open the "_sass > base" folder, and open "_variables.scss"
 footer_icons:                                           # In _data/social.yml
 share_buttons:                                          # In _data/social.yml
-authors:                                                # In _data/authors.yml
+authors:                                                 # In _data/authors.yml
 language:                                               # In _data/language.yml
 
 # PAGINATION
