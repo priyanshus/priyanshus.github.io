@@ -12,7 +12,7 @@ When victim opens the shared link and logs in to website for which attack is pla
 
 Thereafter, Attacker can use the same session id to log in as victim.
 
-![]({{site.baseurl}}/images/session_fixation_flow.png)
+![]({{site.baseurl}}/assets/img/posts/session_fixation_flow.png)
 
 
 ## POC:
@@ -27,4 +27,4 @@ Thereafter, Attacker can use the same session id to log in as victim.
 
 **For reporting this issue to vulnerable app, I was rewarded with XXX (3 digits) Euro**.
 
-![]({{site.baseurl}}/images/session_image.jpeg)
+![]({{site.baseurl}}/assets/img/posts/session_image.jpeg)
