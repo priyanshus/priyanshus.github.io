@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ship Junit tests in a Jar"
-date: "2019-06-08"
+date: "2020-06-08"
 tags: [junit,automation,qa]
 ---
 Do you have Junit tests and you want to ship them in a Jar file so there is no need to set up the source code to run the tests.Or, there is a need of running the tests in a docker container with no access to maven repository.
