@@ -41,4 +41,4 @@ We also found that our `processRequestBody()` is having a similar time-consuming
 - Understand the user load profile correctly and use the appropriate setup to inject the load.
 For example, `constantUsersPerSec(30)` specifies that Gatling will inject 30 users every second. In this setup, there is a possibility that at some point of time number of users connected to the server may go higher than 30.
 
-Wherein `constantConcurrentUsersPerSec(30)` specifies the number of users connected to the server will always remain same. In this case Gatling will always be connected with the server only by 30 concurrent users.
+Wherein `constantConcurrentUsers(30)` specifies the number of users connected to the server will always remain same. In this case Gatling will always be connected with the server only by 30 concurrent users.
