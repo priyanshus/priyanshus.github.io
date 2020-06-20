@@ -42,6 +42,7 @@ We added RestAssured capability in our code to fetch the required identifiers.Th
 
 **One important point to note, the time taken by feeder to fetch the required data will not be included in actual performance test response.**
 
+Check my next post to know the issue we identified by above feeder.[Feeder strategy]({{ site.baseurl }}{% link _posts/2020-06-20-learnings-from-gatling-feeder.md %})
 
 #### Request Body processor
 Request body processor can be used to have custom code to process the request payload before queuing them for test. We kept our encryption and timestamp logic in body processor.
@@ -66,6 +67,7 @@ def bodyProcessor(): Body => ByteArrayBody =
       ByteArrayBody(stream)
     }
 ```
+Check my next post to know the issue we identified by above code.[Feeder strategy]({{ site.baseurl }}{% link _posts/2020-06-20-learnings-from-gatling-feeder.md %})
 
 #### Response Transformer
 As mentioned above, the response is also encrypted so we needed a mechanism to decrypt it before adding any checks in simulation. Below piece of code will decrypt the response.
@@ -106,6 +108,4 @@ val feeder = Iterator.continually(Map(
   setUp(login.inject(constantUsersPerSec(10) during 60).protocols(httpProtocol))
 ```
 
-To ensure that time taken to process the request does not get added in the simulation result, I added intentional `Thread.sleep(50000)` in feeder and body processors. The simulation result with and without them had similar results which confirm that processing time is not added to actual api response time.Thanks to Gatling to provide such nice features.
-
-I am still exploring for a better approach to have timestamps in request payload as there are still some timestamp related error responses if tests run for longer duration.
+To ensure that time taken to process the request does not get added in the simulation result, I added intentional `Thread.sleep(50000)` in feeder and body processors. The simulation result with and without them had similar results which confirm that processing time is not added to actual api response time.Thanks to Gatling for providing such nice features.
