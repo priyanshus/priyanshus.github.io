@@ -25,9 +25,9 @@ Execution Log
 ![]({{site.baseurl}}/assets/img/posts/gatling-logs-for-feeder-execution.png)
 
 In our simulation,**The user
-injection profile says hit the server by 30 users in a second but feeder is having some lazy operation and it is not capable of generating 30 users within a second.** It leads to a situation where the server is being hit by 30 users but not in a second. The Gatling report will not tell you this. The report will have the correct number of requests and corresponding time taken to serve the response. But the problem is the server is not hit by given number of users within the specified time window(in our case it is 1s). So, the numbers shown in the report can be misleading.
+injection profile says hit the server by 30 users in a second but feeder is having some lazy operation and it is not capable of generating 30 users within a second.** It leads to a situation where the server is being hit by 30 users but not in a second. The Gatling report will not tell you this. The report will have the correct count of number of requests and corresponding time taken to serve the response. But in actual, the server never received 30 requests in a second. So, the numbers shown in the report can be misleading.
 
-This can be validated only by looking into some kind of monitoring tool for your server. In our case, this was revealed by Grafana.
+Above can be validated only by looking into some kind of monitoring tool for your server. In our case, this was revealed by Grafana.
 
 #### Fix
 We had to move the `fetchFromMountebank()` from feeder to some other place which does not get executed after user injection by Gatling. The best place for this was `before{}`. Also, We had to switch to CSV based feeder.
@@ -37,4 +37,8 @@ We also found that our `processRequestBody()` is having a similar time-consuming
 #### Learnings
 - Avoid using any piece of code which can impact your user injection profile. Be careful while having heavy operation in `feeders` or `processRequestBody()`. Even object instantiation in such blocks can spoil the user injection profile.
 - While simulating the load on your local machine, keep the debug logs enabled. It helps you to understand the gatling code flow and issues like above can be identified easily.
-- If possible, validate the load on your server. The load injected by Gatling should be in line with the figures revealed by server logs. Especially cross-check the expected time window for load spike.
+- If possible, validate the load on your server. The load injected by Gatling should be in line with the figures revealed by server logs or monitoring dashboard. Especially cross-check that the users hitting the server in same time window as it is specified in the test.
+- Understand the user load profile correctly and use the appropriate setup to inject the load.
+For example, `constantUsersPerSec(30)` specifies that Gatling will inject 30 users every second. In this setup, there is a possibility that at some point of time number of users connected to the server may go higher than 30.
+
+Wherein `constantConcurrentUsersPerSec(30)` specifies the number of users connected to the server will always remain same. In this case Gatling will always be connected with the server only by 30 concurrent users.
