@@ -36,7 +36,7 @@ def run_around_test():
     quit_driver()
 ```
 
-* To access the driver instance in the test code, I used a test profile. It can be a separate blog post.*
+*To access the driver instance in the test code, I used a test profile. It can be a separate blog post.*
 
 The other issue of running the tests in parallel on different browsers can be fixed by generating the parametrized tests at run time. For that, I leveraged `pytest_generate_tests` as below:
 
