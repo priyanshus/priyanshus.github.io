@@ -5,7 +5,7 @@ date: '2020-06-20'
 published: true
 tags: [gatling,automation,performance-test,qa]
 ---
-[In my previous blog]({{ site.baseurl }}{% link _posts/2020-06-04-gatling-request-response-processor.md %}), I outlined our feeder strategy for Gatling. The feeder had given a responsibility to fetch the test users from Mountebank server as below:
+[In my previous post]({{ site.baseurl }}{% link _posts/2020-06-04-gatling-request-response-processor.md %}), I outlined our feeder strategy for Gatling. The feeder had given a responsibility to fetch the test users from Mountebank server as below:
 
 ```java
 val feeder = Iterator.continually(Map(
