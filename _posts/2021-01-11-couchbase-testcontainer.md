@@ -14,7 +14,7 @@ DockerImageName couchbaseImage = DockerImageName.parse("couchbase:latest").asCom
 BucketDefinition bucketDefinition = new BucketDefinition("TestBucket")
         .withPrimaryIndex(true);
 
-couchbaseContainer = new CouchbaseContainer(couchbaseImage)
+CouchbaseContainer couchbaseContainer = new CouchbaseContainer(couchbaseImage)
         .withCredentials("someuser", "somepassword")
         .withExposedPorts(8091,8092,8093,8094,8095)
         .withBucket(bucketDefinition);
