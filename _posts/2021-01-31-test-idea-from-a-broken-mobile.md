@@ -13,4 +13,3 @@ My understanding says, if you have internet connectivity and supported android v
 
 **Surprisingly, both the apps do not work. When I open the app, the screen goes blank in case of Amazon. On the other hand, YouTube renders the search box and logo but the video suggestions do not appear. YouTube keeps running with moving progress circle.**
 
-
