@@ -11,5 +11,5 @@ What do you think, what should be the behaviour of android apps like YouTube, Am
 
 My understanding says, if you have internet connectivity and supported android version. You should be able to use both YouTube & Amazon app for the user journeys where camera is not required.
 
-**Surprisingly, both the apps do not work. When I open the app, the screen goes blank in case of Amazon. On the other hand, YouTube renders the search box and logo but the video suggestions do not appear. YouTube keeps running with moving progress circle.**
+**Surprisingly, both the apps do not work. When I open the app, the screen goes blank in case of Amazon. On the other hand, YouTube renders the search box and logo but the video suggestions do not appear. YouTube keeps moving the progress circle.**
 
